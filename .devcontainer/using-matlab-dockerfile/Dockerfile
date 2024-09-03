@@ -90,5 +90,12 @@ ENV MLM_LICENSE_FILE=$LICENSE_SERVER
 # https://github.com/mathworks-ref-arch/matlab-dockerfile#help-make-matlab-even-better
 ENV MW_DDUX_FORCE_ENABLE=true MW_CONTEXT_TAGS=MATLAB:DOCKERFILE:V1
 
+RUN apt-get update && apt-get install -y wget && \
+    wget -qO- https://update.code.visualstudio.com/latest/linux-deb-x64/stable | dpkg -i -
+
+COPY ./language-matlab-1.2.1.vsix /tmp/matlab-extension.vsix
+
+RUN code --install-extension /tmp/matlab-extension.vsix
+
 ENTRYPOINT ["matlab"]
 CMD [""]
