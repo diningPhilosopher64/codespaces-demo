@@ -17,7 +17,12 @@
     "install-dependencies": "sudo apt-get update && sudo apt-get install --no-install-recommends -y git python3 python3-pip xvfb"
   },
   "updateContentCommand": "sudo python3 -m pip install --upgrade matlab-proxy",
+  "postCreateCommand": ".devcontainer/install_extensions.sh",
+  "settings": {
+    "MATLAB.useOnlineLicensing": true
+  },
   "postStartCommand": "env MWI_APP_PORT=8888 MWI_ENABLE_TOKEN_AUTH=False run.sh -browser"
   // For releases older than R2022a use the following instead:
   // "postStartCommand": "env MWI_APP_PORT=8888 MWI_ENABLE_TOKEN_AUTH=False matlab-proxy-app"
+
 }
