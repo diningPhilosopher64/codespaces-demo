@@ -17,7 +17,7 @@
     "install-dependencies": "sudo apt-get update && sudo apt-get install --no-install-recommends -y git python3 python3-pip xvfb"
   },
   "updateContentCommand": "sudo python3 -m pip install --upgrade matlab-proxy",
-  "postCreateCommand": ".devcontainer/install_extensions.sh",
+  "postCreateCommand": ".devcontainer/install_extension.sh",
   "settings": {
     "MATLAB.useOnlineLicensing": true
   },
